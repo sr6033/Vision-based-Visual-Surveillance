@@ -126,9 +126,9 @@ void detectAndDisplay (Mat frame, int threshold)
 	std::vector <Rect> faces;
 	Mat frame_gray;
 	cvtColor (frame, frame_gray, CV_BGR2GRAY);
-	equalizeHist (frame_gray, frame_gray);
+	equalizeHist (frame_gray, frame_gray);  // To make uniform distributuon of the intensity.
   
-	//-- Detect faces
+	//-- Detect faces and returns a list of rectangles
 	face_cascade.detectMultiScale (frame_gray, faces, 1.1, 2, 0 | CV_HAAR_SCALE_IMAGE, Size (30, 30));
 	for (int i = 0; i < faces.size (); i++)
 	{
